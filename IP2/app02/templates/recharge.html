@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>增加员工信息</title>
+    <style>
+        body {
+            padding-top: 10%;
+            background-image: url("{% static "1.jpeg" %}");
+        }
+        .container {
+            width: 400px;
+            margin: 0 auto;
+            padding: 24px;
+            box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+            background: #ffffff;
+            border-radius: 6px;
+        }
+        .title {
+            text-align: center;
+            margin-bottom: 24px;
+            margin-top: -10%;
+            margin: 0 auto;
+        }
+        .container .title {
+            margin-bottom: 24px;
+        }
+        .container .form-group a {
+            display: inline-block;
+            width: 100%;
+            color: #ffffff;
+        }
+        .form-group{
+            margin: 10px;
+        }
+        .btn{
+          margin-right: 20px;
+          color: black;
+        }
+        .bt{
+            background-color: aquamarine;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+     <div class="title">
+            <h2>充值系统</h2>
+        </div>
+    <div class="container">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group row">
+
+            <div class="col-sm-9">
+              <label for="user" class="col-sm-3">账号:</label>
+                <input type="text" name="user" placeholder="输入账号" id="user" class="form-control form-control-sm">
+            </div>
+        </div>
+        <div class="form-group row">
+
+            <div class="col-sm-9">
+              <label for="numb" class="col-sm-3">卡密:</label>
+                <input type="text" name="numb" placeholder="输入卡密" id="numb" class="form-control form-control-sm">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <button type="submit" class="btn btn-primary btn-sm" style="width: 20%">立即充值</button>
+                <button class="btn btn-primary btn-sm" style="width: 20%"><a style="color:black" href="{% url 'qingt:information' %}">返回首页</a></button>
+
+            </div>
+            {{ msg }}
+        </div>
+
+    </form>
+</div>
+</body>
+</html>
